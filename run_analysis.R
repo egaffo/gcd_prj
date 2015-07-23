@@ -39,9 +39,9 @@ full_set <- mutate(full_set, activity = c(r.test_activities, r.train_activities)
 
 ## make tidy data
 tidy_ds <- group_by(full_set, activity, subjects) %>% summarise_each(funs(mean, "mean", mean(., na.rm = TRUE)))
-tidy_ds.act <- group_by(full_set[, colnames(full_set)!="subjects"], 
-                        activity) %>% summarise_each(funs(mean, "mean", mean(., na.rm = TRUE)))
-tidy_ds.sbj <- group_by(full_set[, colnames(full_set)!="activity"], 
-                        subjects) %>% summarise_each(funs(mean, "mean", mean(., na.rm = TRUE)))
+# tidy_ds.act <- group_by(full_set[, colnames(full_set)!="subjects"], 
+#                         activity) %>% summarise_each(funs(mean, "mean", mean(., na.rm = TRUE)))
+# tidy_ds.sbj <- group_by(full_set[, colnames(full_set)!="activity"], 
+#                         subjects) %>% summarise_each(funs(mean, "mean", mean(., na.rm = TRUE)))
 
 write.table(tidy_ds, "tidyDS.txt", row.names = F)
