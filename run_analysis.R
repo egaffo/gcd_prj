@@ -44,4 +44,4 @@ tidy_ds.act <- group_by(full_set[, colnames(full_set)!="subjects"],
 tidy_ds.sbj <- group_by(full_set[, colnames(full_set)!="activity"], 
                         subjects) %>% summarise_each(funs(mean, "mean", mean(., na.rm = TRUE)))
 
-#write.table(tidy_ds, "tidyDS.txt", row.names = F)
+write.table(tidy_ds, "tidyDS.txt", row.names = F)
